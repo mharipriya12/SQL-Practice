@@ -1,28 +1,3 @@
-SELECT
-    s.student_id,
-    s.student_name,
-    s.marks,
-    d.department_id,
-    d.department_name,
-    d.hod
-FROM students s
-LEFT JOIN departments d
-    ON s.department_id = d.department_id
-
-UNION
-
-SELECT
-    s.student_id,
-    s.student_name,
-    s.marks,
-    d.department_id,
-    d.department_name,
-    d.hod
-FROM students s
-RIGHT JOIN departments d
-    ON s.department_id = d.department_id;
-
-
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
     employee_name VARCHAR(50),
@@ -38,3 +13,13 @@ INSERT INTO employees VALUES
 (5, 'Karthik', 'Developer', 2),
 (6, 'Divya', 'Tester', 3),
 (7, 'Meena', 'Developer', 3);
+
+
+SELECT
+    e.employee_id,
+    e.employee_name AS employee,
+    e.job_title,
+    m.employee_name AS manager
+FROM employees e
+LEFT JOIN employees m
+    ON e.manager_id = m.employee_id;
